@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"path/filepath"
 
 	"github.com/exonlabs/go-logging/pkg/xlog"
 )
@@ -22,7 +24,8 @@ func main() {
 	hnd1 := xlog.NewStdoutHandler()
 	logger.AddHandler(hnd1)
 
-	hnd2 := xlog.NewFileHandler("/tmp/foobar.log")
+	hnd2 := xlog.NewFileHandler(
+		filepath.Join(os.TempDir(), "foobar.log"))
 	logger.AddHandler(hnd2)
 
 	fmt.Println("\n* logging stdout and file:", hnd2.FilePath)
