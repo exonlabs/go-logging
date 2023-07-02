@@ -36,6 +36,12 @@ func NewLogger(name string) *Logger {
 	}
 }
 
+func (l *Logger) CreateChild(name string) *Logger {
+	logger := NewLogger(name)
+	logger.Parent = l
+	return logger
+}
+
 func (l *Logger) SetFormatter(s string) {
 	l.Formatter = s
 	for _, h := range l.Handlers {
