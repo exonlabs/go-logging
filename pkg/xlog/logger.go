@@ -58,7 +58,7 @@ func (l *Logger) ClearHandlers() {
 	l.Handlers = []Handler{}
 }
 
-func (l *Logger) Log(r *Record) error {
+func (l *Logger) Log(r Record) error {
 	if l.Parent == nil && len(l.Handlers) == 0 {
 		l.AddHandler(NewStdoutHandler())
 	}

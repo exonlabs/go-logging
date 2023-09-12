@@ -14,7 +14,7 @@ func NewFileHandler(path string) *FileHandler {
 	}
 }
 
-func (h *FileHandler) HandleRecord(r *Record) error {
+func (h *FileHandler) HandleRecord(r Record) error {
 	fh, err := os.OpenFile(
 		h.FilePath, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0664)
 	if err != nil {

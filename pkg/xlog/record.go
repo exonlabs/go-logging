@@ -15,8 +15,8 @@ type Record struct {
 }
 
 // create new logging record
-func NewRecord(src string, level int, msg string, args ...any) *Record {
-	return &Record{
+func NewRecord(src string, level int, msg string, args ...any) Record {
+	return Record{
 		Timestamp: time.Now().Local(),
 		Source:    src,
 		Level:     level,
@@ -25,7 +25,7 @@ func NewRecord(src string, level int, msg string, args ...any) *Record {
 	}
 }
 
-func (r *Record) Format(formatter string) string {
+func (r Record) Format(formatter string) string {
 	if formatter == "" {
 		formatter = DefaultFormatter()
 	}

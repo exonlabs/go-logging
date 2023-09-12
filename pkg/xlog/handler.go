@@ -3,7 +3,7 @@ package xlog
 type Handler interface {
 	InitFormatter(string)
 	SetFormatter(string)
-	HandleRecord(*Record) error
+	HandleRecord(Record) error
 }
 
 type BaseHandler struct {

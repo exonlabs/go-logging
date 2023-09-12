@@ -12,7 +12,7 @@ func NewStdoutHandler() *StdoutHandler {
 	}
 }
 
-func (h *StdoutHandler) HandleRecord(r *Record) error {
+func (h *StdoutHandler) HandleRecord(r Record) error {
 	_, err := os.Stdout.WriteString(r.Format(h.Formatter) + "\n")
 	return err
 }
